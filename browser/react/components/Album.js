@@ -2,7 +2,6 @@
 
 import React from 'react';
 import SongsContainer from '../containers/SongsContainer';
-import {fetchAndGoToAlbum} from '../action-creators/albums'
 
 export default class Album extends React.Component {
 
@@ -11,12 +10,7 @@ export default class Album extends React.Component {
   }
 
   componentDidMount() {
-    console.log("HI THERE!")
-    fetchAndGoToAlbum({id: this.props.params.albumId})
-    // fetch(`/api/albums/${this.props.params.albumId}`)
-    // .then(res=> res.json())
-    // .then(album => this.setState( album ))
-    // .catch(error => console.error(error))
+    this.props.getAlbum({id: this.props.params.albumId})
   }
 
   render() {
