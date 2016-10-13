@@ -4,11 +4,21 @@ import { connect } from 'react-redux';
 import Songs from '../components/Songs';
 import { startSong, pause, play } from '../action-creators/player';
 
-const mapStateToProps = ({ isPlaying, currentSong }, { songs }) => ({
-  isPlaying,
-  currentSong,
-  songs
-});
+const mapStateToProps = ({ isPlaying, currentSong }, { songs, selectedArtist }) => {
+  if(selectedArtist) {
+    return {
+      isPlaying,
+      currentSong,
+      songs: selectedArtist.songs
+    }
+  } else {
+    return {
+      isPlaying,
+      currentSong,
+      songs
+    }
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
   toggle (selectedSong, selectedSongList, currentSong, isPlaying) {
@@ -16,7 +26,7 @@ const mapDispatchToProps = dispatch => ({
       dispatch(startSong(selectedSong, selectedSongList));
     else if (isPlaying)
       dispatch(pause());
-    else 
+    else
       dispatch(play());
   }
 });
