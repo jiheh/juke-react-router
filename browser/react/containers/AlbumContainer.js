@@ -1,5 +1,4 @@
 'use strict';
-import {fetchAndGoToAlbum} from '../action-creators/albums';
 
 
 import { connect } from 'react-redux';
@@ -9,11 +8,6 @@ const mapStateToProps = ({ selectedAlbum }) => ({
   selectedAlbum
 });
 
-const mapDispatchToProps = dispatch => ({
-  getAlbum: album => dispatch(fetchAndGoToAlbum(album))
-});
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(Album);

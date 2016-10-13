@@ -5,26 +5,23 @@ import SongsContainer from '../containers/SongsContainer';
 import { Link } from 'react-router';
 
 
-export default class Artist extends React.Component {
+export default ({ selectedArtist, children }) => (
 
-  componentDidMount() {
-    this.props.getArtist({id: this.props.params.artistId})
-  }
+  // componentDidMount() {
+  //   this.props.getArtist({id: this.props.params.artistId})
+  // }
+  // const { selectedArtist, children } = this.props;
 
-  render () {
-    const { selectedArtist, children } = this.props;
-    return (
-            <div>
-              <h3>{ selectedArtist.name }</h3>
-              <ul className="nav nav-tabs">
-                <li><Link to={`/artists/${selectedArtist.id}/albums`}>ALBUMS</Link></li>
-                <li><Link to={`/artists/${selectedArtist.id}/songs`}>SONGS</Link></li>
-              </ul>
-              { children && React.cloneElement(children, { selectedArtist }) }
-            </div>
-    );
-  }
-}
+  <div>
+    <h3>{ selectedArtist.name }</h3>
+    <ul className="nav nav-tabs">
+      <li><Link to={`/artists/${selectedArtist.id}/albums`}>ALBUMS</Link></li>
+      <li><Link to={`/artists/${selectedArtist.id}/songs`}>SONGS</Link></li>
+    </ul>
+    { children && React.cloneElement(children, { selectedArtist }) }
+  </div>
+);
+
  // note the destructured assignment
       // <div>
       //   <h3>{ this.props.selectedArtist.name }</h3>

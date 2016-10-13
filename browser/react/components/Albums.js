@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-export default ({ albums, go }) => (
+export default ({ albums}) => (
   <div>
     <h3>Albums</h3>
     <div className="row">
