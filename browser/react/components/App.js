@@ -17,7 +17,7 @@ export default class App extends Component {
 
   componentDidMount () {
     const { onLoad } = this.props;
-    
+
     Promise
       .all([
         fetch('/api/albums').then(res => res.json()),
@@ -36,14 +36,7 @@ export default class App extends Component {
         </div>
         <div className="col-xs-10">
           {
-            (() => {
-              switch (location) {
-                case 'albums': return <AlbumsContainer />
-                case 'artists': return <ArtistsContainer />
-                case 'album': return <AlbumContainer />
-                case 'artist': return <ArtistContainer /> 
-              }
-            })()
+            this.props.children
           }
         </div>
         <PlayerContainer />
