@@ -3,7 +3,7 @@
 import { RECEIVE_ALBUM } from '../constants';
 import { convertAlbum } from '../converters';
 
-const initialAlbum = {};
+const initialAlbum = { songs: [] };
 
 export default function album (state = initialAlbum, action) {
   switch (action.type) {
