@@ -35,9 +35,7 @@ export default class App extends Component {
           <SidebarContainer />
         </div>
         <div className="col-xs-10">
-          {
-            this.props.children
-          }
+          { this.props.children }
         </div>
         <PlayerContainer />
       </div>

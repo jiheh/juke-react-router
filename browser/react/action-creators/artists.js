@@ -26,6 +26,7 @@ export const fetchAndGoToArtist = artist =>
       .then(responses => Promise.all(responses.map(res => res.json())))
       .then(results => {
         dispatch(receiveArtist(...results));
-        dispatch(switchLocation('artist'));
-      });
+        dispatch(switchLocation('artist'))
+      })
+      .catch(function(err) {console.log(err)})
   };

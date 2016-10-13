@@ -5,10 +5,6 @@ import SongsContainer from '../containers/SongsContainer';
 
 export default class Album extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.getAlbum({id: this.props.params.albumId})
   }
